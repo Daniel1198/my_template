@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&family=Roboto:wght@400&display=swap');
 
 $colors: (
     "white": rgba(255, 255, 255, 0.877),
@@ -18,12 +18,19 @@ $colors: (
 
 $primary-font: 'Inter';
 $secondary-font: 'Roboto';
+$card-radius: 0.2rem;
 
 * {
     font-family: $secondary-font;
+    font-size:14px;
 }
 
-// text and background styles
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+// text and background and border styles
 @each $key, $color in $colors {
     .txt--#{$key} {
         color: $color;
@@ -32,12 +39,19 @@ $secondary-font: 'Roboto';
     .bg--#{$key} {
         background-color: $color;
     }
+
+    .border--#{$key} {
+        border: 1px solid lighten($color: $color, $amount: 20%);
+    }
+
+    .border__dashed--#{$key} {
+        border: 1px dashed lighten($color: $color, $amount: 20%);
+    }
 }
 
 // button styles
 .bt {
     padding: 0.5rem;
-    font-size: small;
     border-radius: 0.2rem;
     box-sizing: border-box;
     outline: none;
@@ -46,6 +60,13 @@ $secondary-font: 'Roboto';
     background-color: transparent;
     cursor: pointer;
     transition: all 0.2s;
+
+    &.bt--link {
+        border: 1px solid rgb(209, 209, 209);
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 
     @each $key, $color in $colors {
         &.bt--#{$key} {
@@ -76,6 +97,69 @@ $secondary-font: 'Roboto';
                 cursor: default;
             }
         }
+    }
+}
+
+.form__input {
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.288);
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    font-family: $secondary-font;
+    transition: 0.1s;
+    border-radius: $card-radius;
+
+    &:focus {
+        border: 1.5px solid black;
+    }
+}
+
+.form__select {
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.288);
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    font-family: $secondary-font;
+    transition: 0.1s;
+    appearance: none;
+    cursor: pointer;
+
+    &:focus {
+        border: 1.5px solid black;
+    }
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form__group {
+    margin-bottom: 1rem;
+}
+
+.my-card {
+    &__header {
+        padding-block: 1rem;
+        padding-inline: 1rem;
+        border-radius: $card-radius;
+        margin-bottom: 0.5rem;
+        background-color: rgb(235, 235, 235) inherit;
+    }
+
+    &__body {
+        border-radius: $card-radius;
+        padding: 1rem;
+        background-color: white;
+        margin-bottom: 0.5rem;
+    }
+
+    &__footer {
+        border-radius: $card-radius;
+        padding: 1rem;
+        background-color: white;
     }
 }
 
