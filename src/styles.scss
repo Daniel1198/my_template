@@ -3,20 +3,20 @@
 
 $colors: (
     "white": rgba(255, 255, 255, 0.877),
-    "dark": rgba(19, 19, 19, 0.945),
+    "dark": rgba(24, 24, 24, 0.863),
     "disabled": rgba(196, 196, 196, 0.904),
     "green": rgba(62, 143, 62, 0.87),
     "green-light": rgba(95, 253, 95, 0.87),
-    "blue": rgba(42, 123, 190, 0.87),
+    "blue": rgb(39, 113, 173),
     "blue-light": rgba(94, 209, 255, 0.87),
-    "blue-grey": rgba(77, 102, 122, 0.87),
+    "blue-grey": rgb(72, 94, 112),
     "red": rgba(204, 66, 66, 0.87),
-    "orange": rgba(235, 131, 47, 0.87),
+    "orange": rgb(209, 118, 43),
     "purple": rgba(182, 47, 235, 0.87),
     "pink": rgba(235, 47, 204, 0.87)
 );
 
-$primary-font: 'Inter';
+$primary-font: 'Inter Tight';
 $secondary-font: 'Roboto';
 $card-radius: 0.2rem;
 
@@ -163,3 +163,82 @@ html, body {
     }
 }
 
+.logo--container {
+    border-right-style: dashed;
+    border-right-width: 1px;
+    border-right-color: rgba(255, 255, 255, 0.829);
+    width: min-content;
+    padding-inline: 2rem;
+}
+
+.menu {
+    margin: 0;
+    .menu__item {
+        display: inline;
+        margin-inline: 0.3rem;
+
+        a {
+            color: map-get($map: $colors, $key: "white");
+            text-decoration: none;
+            transform: scale(1);
+            padding-inline: 10px;
+            padding-block-start: 10px;
+            padding-block-end: 9px;
+            transition: 0.3s;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border: 1px solid transparent;
+
+            &:not(.current):hover {
+                border: 1px solid darken($color: map-get($map: $colors, $key: "white"), $amount: 20%);
+            }
+
+            &.current {
+                background-color: white;
+                color: map-get($map: $colors, $key: "dark");
+
+                i {
+                    color: map-get($map: $colors, $key: "orange");
+                }
+            }
+        }
+    }
+}
+
+table {
+    width: 100%;
+
+    thead {
+        background-color: map-get($map: $colors, $key: "disabled");
+
+        tr td {
+            padding: 0.5rem 1rem;
+        }
+
+        tr td:not(:last-child) {
+            border-right: 1px dashed white;
+        }
+
+        tr td:first-child {
+            border-top-left-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
+        }
+
+        tr td:last-child {
+            border-top-right-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+    }
+
+    tbody {
+        tr {
+            & td {
+                padding: 0.5rem 1rem;
+            }
+
+            &:not(:last-child) td {
+                border-bottom: 1px solid rgba(214, 214, 214, 0.459);
+            }
+        }
+    }
+}
