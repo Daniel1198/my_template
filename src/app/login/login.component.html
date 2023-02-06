@@ -29,8 +29,10 @@
         </div>
 
         <div class="my-card__footer border w3-animate-bottom">
-            <button class="bt bt--orange w-100 mb-3" routerLink="/dashboard">Connexion</button>
+            <button class="bt bt--orange w-100 mb-3" (click)="onClick()">Connexion</button>
             <button class="bt bt--link w-100">Mot de passe oublié ?</button>
         </div>
     </div>
 </div>
+
+<app-loader *ngIf="loading" [isLargeLoader]="true"></app-loader>

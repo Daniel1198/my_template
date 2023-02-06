@@ -11,6 +11,7 @@ import { FormsComponent } from './forms/forms.component';
 import { LoaderComponent } from './loader/loader.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { LoaderModule } from './loader/loader.module';
 
 @NgModule({
   declarations: [
@@ -20,14 +21,14 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     DashboardComponent,
     TableComponent,
     FormsComponent,
-    LoaderComponent,
     RegisterComponent,
     ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    LoaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -20,6 +20,18 @@ $primary-font: 'Inter Tight';
 $secondary-font: 'Roboto';
 $card-radius: 0.1rem;
 
+@mixin formsStyles() {
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.288);
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    font-family: $secondary-font;
+    transition: 0.1s;
+    appearance: none;
+    border-radius: $card-radius;
+}
+
 * {
     font-family: $secondary-font;
     font-size:14px;
@@ -101,14 +113,7 @@ html, body {
 }
 
 .form__input {
-    outline: none;
-    box-sizing: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.288);
-    padding-block: 0.5rem;
-    padding-inline: 1rem;
-    font-family: $secondary-font;
-    transition: 0.1s;
-    border-radius: $card-radius;
+    @include formsStyles;
 
     &:focus {
         border: 1.5px solid black;
@@ -116,14 +121,7 @@ html, body {
 }
 
 .form__select {
-    outline: none;
-    box-sizing: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.288);
-    padding-block: 0.5rem;
-    padding-inline: 1rem;
-    font-family: $secondary-font;
-    transition: 0.1s;
-    appearance: none;
+    @include formsStyles;
     cursor: pointer;
 
     &:focus {
@@ -136,8 +134,53 @@ html, body {
     margin-bottom: 0.5rem;
 }
 
-.form__group {
+.form__group, .form__check {
     margin-bottom: 1rem;
+}
+
+.form__check {
+    display: flex;
+    align-items: center;
+    .form__check__input {
+        margin-right: 0.5rem;
+
+        &:disabled + .form__check__label {
+            opacity: .5;
+        }
+    }
+}
+
+.form__file {
+    &::-webkit-file-upload-button {
+        padding: 0.5rem 1rem;
+        outline: none;
+        cursor: pointer;
+    }
+
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.1s;
+    border-radius: $card-radius;
+    border: 1px solid rgba(0, 0, 0, 0.288);
+    width: 100%;
+
+}
+
+@each $key, $color in $colors {
+    .bg__file__bt--#{$key}::-webkit-file-upload-button {
+        background-color: $color;
+        border: 1px solid $color;
+        color: white;
+
+        &:not(:disabled):hover {
+            background-color: darken($color: $color, $amount: 30%);
+        }
+
+        &:disabled {
+            opacity: .4;
+            cursor: default;
+        }
+    }
 }
 
 .my-card {
@@ -146,7 +189,20 @@ html, body {
         padding-inline: 1rem;
         border-radius: $card-radius;
         margin-bottom: 0.5rem;
-        background-color: rgb(235, 235, 235) inherit;
+
+        @each $key, $color in $colors {
+            .bg--#{$key} {
+                background-color: $color;
+            }
+        
+            .border--#{$key} {
+                border: 1px solid lighten($color: $color, $amount: 20%);
+            }
+        
+            .border__dashed--#{$key} {
+                border: 1px dashed lighten($color: $color, $amount: 20%);
+            }
+        }
     }
 
     &__body {

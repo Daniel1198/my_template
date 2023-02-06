@@ -1,1 +1,74 @@
-<p>forms works!</p>
+<div class="w3-animate-zoom">
+    <div class="my-card">
+        <div class="my-card__header bg--dark txt--white">
+            Mon Formulaire
+        </div>
+        <form class="my-card__body border">
+            <div class="row">
+                <div class="col-6 form__group">
+                    <label for="" class="form__label">Lastname <span class="text-danger">*</span></label>
+                    <input type="text" class="form__input w-100">
+                </div>
+                <div class="col-6 form__group">
+                    <label for="" class="form__label">Firstname <span class="text-danger">*</span></label>
+                    <input type="text" class="form__input w-100">
+                </div>
+                <div class="col-6 form__group">
+                    <label for="" class="form__label">Email <span class="text-danger">*</span></label>
+                    <input type="email" class="form__input w-100" placeholder="name@domain">
+                </div>
+                <div class="col-6 form__group">
+                    <label for="" class="form__label">Job <span class="text-danger">*</span></label>
+                    <input type="text" class="form__input w-100">
+                </div>
+                <div class="col-6 form__group">
+                    <label for="file" class="form__label">Select an image <span class="text-danger">*</span></label>
+                    <input type="file" id="file" class="form__file bg__file__bt--blue-grey">
+                </div>
+                <div class="col-6 form__group">
+                    <label class="form__label">Select your country <span class="text-danger">*</span></label>
+                    <select class="form__select w-100">
+                        <option value="">--- Countries ---</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <div class="form__check">
+                        <input class="form__check__input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form__check__label" for="flexCheckDefault">
+                          Administrator
+                        </label>
+                    </div>
+                    <div class="form__check">
+                        <input class="form__check__input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form__check__label" for="flexRadioDefault1">
+                          Man
+                        </label>
+                      </div>
+                      <div class="form__check">
+                        <input class="form__check__input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form__check__label" for="flexRadioDefault2">
+                          Woman
+                        </label>
+                      </div>
+                </div>
+
+                <div class="col-6 form__group">
+                    <label for="" class="form__label">Subject <span class="text-danger">*</span></label>
+                    <textarea class="w-100 form__input"></textarea>
+                </div>
+                <div class="col-12">
+                    <div class="m-auto w-auto">
+                        <app-loader></app-loader>
+                    </div>
+                </div>
+                <div class="col-6"></div>
+                <div class="col-6 mt-3">
+                    <div class="text-end">
+                        <button class="bt bt--red w-25">Annuler</button>
+                        <button class="bt bt--green w-25 ms-3">Enregistrer</button>
+                    </div>
+                </div>
+            </div>
+        </form>     
+    </div>
+</div>

@@ -1,4 +1,4 @@
-<div class="w3-animate-opacity h-100">
+<div class="w3-animate-opacity h-100 position-relative">
     <div class="bg--blue-grey d-flex position-sticky top-0" style="padding-bottom: 7px; z-index: 1;">
         <div class="logo--container d-flex align-items-center mt-1">
             <img src="favicon.ico" alt="logo">
@@ -23,12 +23,6 @@
                         Formulaire
                     </a>
                 </li>
-                <li class="menu__item">
-                    <a routerLink="/dashboard/loader" routerLinkActive="current">
-                        <i class="fa fa-spinner"></i>
-                        Chargement
-                    </a>
-                </li>
                 <li class="menu__item other">
                     <a routerLink="/login" routerLinkActive="current">
                         <i class="fa fa-user"></i>
@@ -46,15 +40,16 @@
         </div>
     </div>
 
-    <div class="container pt-3" style="padding-bottom: 5rem;">
+    <div class="container pt-3" style="padding-bottom: 60px;">
         <router-outlet></router-outlet>
     </div>
 
     <div class="p-2 border-top bg-light position-fixed bottom-0 w-100 d-flex">
-        <div>
+        <div class="d-flex align-items-center">
             <button class="bt bt__outline--disabled py-1">
                 <i class="fa fa-power-off"></i>
             </button>
+            <small class="ms-2">Username</small>
         </div>
 
         <div class="m-auto">
