@@ -18,7 +18,7 @@ $colors: (
 
 $primary-font: 'Inter Tight';
 $secondary-font: 'Roboto';
-$card-radius: 0.2rem;
+$card-radius: 0.1rem;
 
 * {
     font-family: $secondary-font;
@@ -220,13 +220,13 @@ table {
         }
 
         tr td:first-child {
-            border-top-left-radius: 0.5rem;
-            border-bottom-left-radius: 0.5rem;
+            border-top-left-radius: 0.1rem;
+            border-bottom-left-radius: 0.1rem;
         }
 
         tr td:last-child {
-            border-top-right-radius: 0.5rem;
-            border-bottom-right-radius: 0.5rem;
+            border-top-right-radius: 0.1rem;
+            border-bottom-right-radius: 0.1rem;
         }
     }
 
